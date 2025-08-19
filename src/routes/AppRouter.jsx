@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react"
+import { lazy, Suspense, useEffect, useState } from "react"
 import { BrowserRouter, Routes, Route, useLocation, Navigate, matchPath } from "react-router-dom"
 // import {Header , Footer}  from "../layout"
 import { ScrollToTop } from "../components/ScrollToTop"
@@ -12,6 +12,7 @@ import {
   ProgressLoader,
 } from "../components/loaders/LoadingComponents"
 import {Toaster} from  "sonner" 
+import ColmenaLoader from "../components/loaders/ColmenaLoader"
 
 // Lazy load page components ------- Rutas generales de pagina 
 
@@ -149,8 +150,19 @@ const AppContent = () => {
 }
 
 export const AppRouter = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    // Simular tiempo de carga
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 4500)
+
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <BrowserRouter>
+     {isLoading && <ColmenaLoader />}
       <AppContent />
     </BrowserRouter>
   )

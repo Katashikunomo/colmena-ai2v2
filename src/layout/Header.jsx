@@ -1,9 +1,8 @@
-"use client"
-
 import { useEffect, useRef, useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons"
 import { motion, AnimatePresence } from "framer-motion"
+import logoColmena from "../components/loaders/logo_morado_dorado.png"
 
 export default function Header() {
   const location = useLocation()
@@ -18,8 +17,8 @@ export default function Header() {
   const menu = [
     { key: "/", label: "Inicio" },
     // { key: "/about", label: "Nosotros" },
-    { key: "/#acerca", label: "Nosotros" },
-    { key: "/#primercontact", label: "Contacto" },
+    { key: "/about", label: "Nosotros" },
+    { key: "/contact", label: "Contacto" },
     // { key: "/contact", label: "Contacto" },
   ]
 
@@ -59,11 +58,11 @@ export default function Header() {
   }, [])
 
   const wrapperBgClass = scrolled
-    ? "bg-gradient-to-r from-purple-900/50 via-purple-700/50 to-white/50 backdrop-blur-md"
+    ? "bg-gradient-to-r from-purple-900/50 via-black/50 to-black/60 backdrop-blur-md border-2 border-purple-700 shadow-sm shadow-purple-400"
     : "bg-gradient-to-r from-purple-900 via-purple-600 to-white/20 backdrop-blur-md"
 
   const baseHeaderHeight = scrolled ? 60 : 80
-  const headerStyle = { maxWidth: "1600px" }
+  const headerStyle = { maxWidth: "800px" }
 
   const isActive = (path) => location.pathname === path
 
@@ -74,7 +73,7 @@ export default function Header() {
         initial={{ y: 0 }}
         animate={{ y: visible ? 0 : -Math.min(baseHeaderHeight + 12, 96) }}
         transition={{ duration: 0.33, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center px-2 md:px-0 bg-black"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center px-2 md:px-0 "
       >
         <div
           className={`w-full md:w-[98%] mx-auto ${wrapperBgClass} shadow-xl transform-gpu transition-all duration-300
@@ -91,30 +90,10 @@ export default function Header() {
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-11 h-11 rounded-xl flex items-center justify-center shadow-md from-black to-purple-800 bg-gradient-to-br hover:shadow-lg transition-all duration-200 select-none"
+                className="w-11 h-11 rounded-3xl flex items-center justify-center  from-black to-purple-800 shadow-lg bg-gradient-to-br hover:shadow-xl transition-all duration-200 select-none"
               
               >
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="text-white"
-                >
-                  {/* Hexágono central */}
-                  <path d="M12 2L16.5 5V11L12 14L7.5 11V5L12 2Z" fill="currentColor" fillOpacity="0.9" />
-                  {/* Hexágono superior izquierdo */}
-                  <path d="M7.5 5L10.5 3.5L12 2L9 0.5L6 2L7.5 5Z" fill="currentColor" fillOpacity="0.6" />
-                  {/* Hexágono superior derecho */}
-                  <path d="M16.5 5L18 2L15 0.5L12 2L13.5 3.5L16.5 5Z" fill="currentColor" fillOpacity="0.6" />
-                  {/* Hexágono inferior izquierdo */}
-                  <path d="M7.5 11L6 14L9 15.5L12 14L10.5 12.5L7.5 11Z" fill="currentColor" fillOpacity="0.7" />
-                  {/* Hexágono inferior derecho */}
-                  <path d="M16.5 11L18 14L15 15.5L12 14L13.5 12.5L16.5 11Z" fill="currentColor" fillOpacity="0.7" />
-                  {/* Hexágono inferior central */}
-                  <path d="M12 14L16.5 17V23L12 26L7.5 23V17L12 14Z" fill="currentColor" fillOpacity="0.5" />
-                </svg>
+                <img src={logoColmena} alt="Logo" className="w-full h-full" />
               </motion.div>
               <motion.span
                 initial={{ opacity: 0, x: -10 }}
@@ -184,7 +163,7 @@ export default function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-screen h-screen z-40 md:hidden"
+            className="fixed top-0 left-0 w-screen h-screen z-50 md:hidden"
             style={{
               backdropFilter: "blur(5px)",
               background: "rgba(0,0,0,0.5)",
@@ -197,7 +176,7 @@ export default function Header() {
               transition={{ duration: 0.3 }}
               className="mt-[80px] p-2"
             >
-              <div className="bg-gradient-to-br from-purple-900/95 via-purple-700/95 to-purple-600/95 backdrop-blur-md shadow-xl p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-purple-900/35 via-purple-700/95 to-purple-600/95 backdrop-blur-md shadow-xl p-4 rounded-lg">
                 <div className="flex flex-col gap-2">
                   {menu.map((m) => {
                     const active = isActive(m.key)
