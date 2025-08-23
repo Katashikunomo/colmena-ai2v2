@@ -34,6 +34,11 @@ import { FiCheckCircle, FiSmartphone } from "react-icons/fi"
 import BussinesSection from "./components/BussinesSection"
 import BeneficiosPorSector from "./components/BeneficiosPorsector"
 import Logo from "../../assets/logo_morado_dorado.png"
+import HoneycombFeatures from "./components/HoneycombFeatures"
+import { useNavigate } from "react-router-dom"
+import DemoSection from "./components/DemoSection"
+
+
 
 /* =========================
    Mobile Detection Hook
@@ -216,7 +221,7 @@ const AutomationImprovements = () => {
     },
     {
       title: "Análisis Predictivo",
-      description: "Predice comportamiento del cliente con IA",
+      description: "Predice comportamiento del cliente con AI",
       metric: "85% precisión",
       icon: <FaChartBar />,
       color: "from-purple-500 to-violet-500",
@@ -616,352 +621,352 @@ const HoneycombEcosystem = () => {
   )
 }
 
-/* =========================
-   HoneycombFeatures - Enhanced mobile support
-   ========================= */
-const HoneycombFeatures = () => {
-  const [visibleFeatures, setVisibleFeatures] = useState(0)
-  const [hoveredFeature, setHoveredFeature] = useState(null)
-  const [clickedFeature, setClickedFeature] = useState(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const isMobile = useIsMobile()
+// /* =========================
+//    HoneycombFeatures - Enhanced mobile support
+//    ========================= */
+// const HoneycombFeatures = () => {
+//   const [visibleFeatures, setVisibleFeatures] = useState(0)
+//   const [hoveredFeature, setHoveredFeature] = useState(null)
+//   const [clickedFeature, setClickedFeature] = useState(null)
+//   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+//   const isMobile = useIsMobile()
 
-  const features = [
-    {
-      icon: <FaChartLine />,
-      title: "Analytics Avanzado",
-      description: "Métricas en tiempo real y reportes detallados",
-      color: "from-purple-500 to-purple-700",
-      x: { mobile: 0, md: 0 },
-      y: { mobile: -150, md: -200 },
-    },
-    {
-      icon: <FaBrain />,
-      title: "IA Conversacional",
-      description: "Chatbots inteligentes que aprenden de cada interacción",
-      color: "from-blue-500 to-blue-700",
-      x: { mobile: 130, md: 173 },
-      y: { mobile: -75, md: -100 },
-    },
-    {
-      icon: <FaUsers />,
-      title: "Gestión de Equipos",
-      description: "Colaboración fluida entre agentes y supervisores",
-      color: "from-green-500 to-green-700",
-      x: { mobile: 130, md: 173 },
-      y: { mobile: 75, md: 100 },
-    },
-    {
-      icon: <FaRobot />,
-      title: "Automatización Total",
-      description: "Flujos de trabajo automatizados para máxima eficiencia",
-      color: "from-pink-500 to-pink-700",
-      x: { mobile: 0, md: 0 },
-      y: { mobile: 150, md: 200 },
-    },
-    {
-      icon: <FaDatabase />,
-      title: "Sincronización de Datos",
-      description: "Integración perfecta con tus sistemas existentes",
-      color: "from-indigo-500 to-indigo-700",
-      x: { mobile: -130, md: -173 },
-      y: { mobile: 75, md: 100 },
-    },
-    {
-      icon: <FaLightbulb />,
-      title: "Insights Inteligentes",
-      description: "Descubre patrones ocultos en tus conversaciones",
-      color: "from-yellow-500 to-yellow-700",
-      x: { mobile: -130, md: -173 },
-      y: { mobile: -75, md: -100 },
-    },
-    {
-      icon: <FaSync />,
-      title: "Tiempo Real",
-      description: "Actualizaciones instantáneas en todos los canales",
-      color: "from-cyan-500 to-cyan-700",
-      x: { mobile: 200, md: 300 },
-      y: { mobile: 0, md: 0 },
-    },
-    {
-      icon: <FaBolt />,
-      title: "Respuesta Rápida",
-      description: "Tiempos de respuesta de milisegundos",
-      color: "from-orange-500 to-orange-700",
-      x: { mobile: -200, md: -300 },
-      y: { mobile: 0, md: 0 },
-    },
-    {
-      icon: <FaShieldAlt />,
-      title: "Seguridad Avanzada",
-      description: "Encriptación end-to-end y cumplimiento GDPR",
-      color: "from-red-500 to-red-700",
-      x: { mobile: 110, md: 150 },
-      y: { mobile: -130, md: -173 },
-    },
-    {
-      icon: <FaHeadset />,
-      title: "Soporte 24/7",
-      description: "Asistencia continua para tu equipo",
-      color: "from-teal-500 to-teal-700",
-      x: { mobile: -110, md: -150 },
-      y: { mobile: -130, md: -173 },
-    },
-    {
-      icon: <FaChartBar />,
-      title: "Reportes Dinámicos",
-      description: "Visualizaciones interactivas de rendimiento",
-      color: "from-violet-500 to-violet-700",
-      x: { mobile: 110, md: 150 },
-      y: { mobile: 130, md: 173 },
-    },
-    {
-      icon: <FaUserFriends />,
-      title: "CRM Integrado",
-      description: "Gestión completa de relaciones con clientes",
-      color: "from-emerald-500 to-emerald-700",
-      x: { mobile: -110, md: -150 },
-      y: { mobile: 130, md: 173 },
-    },
-  ]
+//   const features = [
+//     {
+//       icon: <FaChartLine />,
+//       title: "Analytics Avanzado",
+//       description: "Métricas en tiempo real y reportes detallados",
+//       color: "from-purple-500 to-purple-700",
+//       x: { mobile: 0, md: 0 },
+//       y: { mobile: -150, md: -200 },
+//     },
+//     {
+//       icon: <FaBrain />,
+//       title: "AI Conversacional",
+//       description: "Chatbots inteligentes que aprenden de cada interacción",
+//       color: "from-blue-500 to-blue-700",
+//       x: { mobile: 130, md: 173 },
+//       y: { mobile: -75, md: -100 },
+//     },
+//     {
+//       icon: <FaUsers />,
+//       title: "Gestión de Equipos",
+//       description: "Colaboración fluida entre agentes y supervisores",
+//       color: "from-green-500 to-green-700",
+//       x: { mobile: 130, md: 173 },
+//       y: { mobile: 75, md: 100 },
+//     },
+//     {
+//       icon: <FaRobot />,
+//       title: "Automatización Total",
+//       description: "Flujos de trabajo automatizados para máxima eficiencia",
+//       color: "from-pink-500 to-pink-700",
+//       x: { mobile: 0, md: 0 },
+//       y: { mobile: 150, md: 200 },
+//     },
+//     {
+//       icon: <FaDatabase />,
+//       title: "Sincronización de Datos",
+//       description: "Integración perfecta con tus sistemas existentes",
+//       color: "from-indigo-500 to-indigo-700",
+//       x: { mobile: -130, md: -173 },
+//       y: { mobile: 75, md: 100 },
+//     },
+//     {
+//       icon: <FaLightbulb />,
+//       title: "Insights Inteligentes",
+//       description: "Descubre patrones ocultos en tus conversaciones",
+//       color: "from-yellow-500 to-yellow-700",
+//       x: { mobile: -130, md: -173 },
+//       y: { mobile: -75, md: -100 },
+//     },
+//     {
+//       icon: <FaSync />,
+//       title: "Tiempo Real",
+//       description: "Actualizaciones instantáneas en todos los canales",
+//       color: "from-cyan-500 to-cyan-700",
+//       x: { mobile: 200, md: 300 },
+//       y: { mobile: 0, md: 0 },
+//     },
+//     {
+//       icon: <FaBolt />,
+//       title: "Respuesta Rápida",
+//       description: "Tiempos de respuesta de milisegundos",
+//       color: "from-orange-500 to-orange-700",
+//       x: { mobile: -200, md: -300 },
+//       y: { mobile: 0, md: 0 },
+//     },
+//     {
+//       icon: <FaShieldAlt />,
+//       title: "Seguridad Avanzada",
+//       description: "Encriptación end-to-end y cumplimiento GDPR",
+//       color: "from-red-500 to-red-700",
+//       x: { mobile: 110, md: 150 },
+//       y: { mobile: -130, md: -173 },
+//     },
+//     {
+//       icon: <FaHeadset />,
+//       title: "Soporte 24/7",
+//       description: "Asistencia continua para tu equipo",
+//       color: "from-teal-500 to-teal-700",
+//       x: { mobile: -110, md: -150 },
+//       y: { mobile: -130, md: -173 },
+//     },
+//     {
+//       icon: <FaChartBar />,
+//       title: "Reportes Dinámicos",
+//       description: "Visualizaciones interactivas de rendimiento",
+//       color: "from-violet-500 to-violet-700",
+//       x: { mobile: 110, md: 150 },
+//       y: { mobile: 130, md: 173 },
+//     },
+//     {
+//       icon: <FaUserFriends />,
+//       title: "CRM Integrado",
+//       description: "Gestión completa de relaciones con clientes",
+//       color: "from-emerald-500 to-emerald-700",
+//       x: { mobile: -110, md: -150 },
+//       y: { mobile: 130, md: 173 },
+//     },
+//   ]
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const featuresSection = document.getElementById("features")
-      if (featuresSection) {
-        const rect = featuresSection.getBoundingClientRect()
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const featuresSection = document.getElementById("features")
+//       if (featuresSection) {
+//         const rect = featuresSection.getBoundingClientRect()
+//         const isVisible = rect.top < window.innerHeight && rect.bottom > 0
 
-        if (isVisible) {
-          const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight))
-          const newVisibleFeatures = Math.floor(scrollProgress * features.length)
-          setVisibleFeatures(newVisibleFeatures)
-        } else if (rect.top > window.innerHeight || rect.bottom < 0) {
-          setVisibleFeatures(0)
-        }
-      }
-    }
+//         if (isVisible) {
+//           const scrollProgress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight))
+//           const newVisibleFeatures = Math.floor(scrollProgress * features.length)
+//           setVisibleFeatures(newVisibleFeatures)
+//         } else if (rect.top > window.innerHeight || rect.bottom < 0) {
+//           setVisibleFeatures(0)
+//         }
+//       }
+//     }
 
-    const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
+//     const handleMouseMove = (e) => {
+//       setMousePosition({ x: e.clientX, y: e.clientY })
+//     }
 
-    window.addEventListener("scroll", handleScroll)
-    window.addEventListener("mousemove", handleMouseMove)
-    handleScroll()
+//     window.addEventListener("scroll", handleScroll)
+//     window.addEventListener("mousemove", handleMouseMove)
+//     handleScroll()
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
+//     return () => {
+//       window.removeEventListener("scroll", handleScroll)
+//       window.removeEventListener("mousemove", handleMouseMove)
+//     }
+//   }, [])
 
-  const getResponsivePosition = (feature) => {
-    const isMobileView = window.innerWidth < 768
-    return {
-      x: isMobileView ? feature.x.mobile : feature.x.md,
-      y: isMobileView ? feature.y.mobile : feature.y.md,
-    }
-  }
+//   const getResponsivePosition = (feature) => {
+//     const isMobileView = window.innerWidth < 768
+//     return {
+//       x: isMobileView ? feature.x.mobile : feature.x.md,
+//       y: isMobileView ? feature.y.mobile : feature.y.md,
+//     }
+//   }
 
-  const handleFeatureInteraction = (index) => {
-    if (isMobile) {
-      setClickedFeature(clickedFeature === index ? null : index)
-    } else {
-      setHoveredFeature(index)
-    }
-  }
+//   const handleFeatureInteraction = (index) => {
+//     if (isMobile) {
+//       setClickedFeature(clickedFeature === index ? null : index)
+//     } else {
+//       setHoveredFeature(index)
+//     }
+//   }
 
-  return (
-    <div className="relative w-full h-[700px] md:h-[900px] flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <svg className="w-full h-full">
-          <defs>
-            <pattern id="honeycomb" x="0" y="0" width="80" height="69" patternUnits="userSpaceOnUse">
-              <polygon points="40,1 70,20 70,57 40,76 10,57 10,20" fill="none" stroke="#8b5cf6" strokeWidth="1">
-                <animate attributeName="stroke" values="#8b5cf6;#06b6d4;#8b5cf6" dur="2s" repeatCount="indefinite" />
-              </polygon>
-              <line x1="40" y1="1" x2="40" y2="76" stroke="#8b5cf6" strokeWidth="0.5" opacity="0.3">
-                <animate
-                  attributeName="stroke-dasharray"
-                  values="0,100;50,50;100,0"
-                  dur="3s"
-                  repeatCount="indefinite"
-                />
-              </line>
-            </pattern>
-            <animateTransform
-              attributeName="patternTransform"
-              type="translate"
-              values="0,0;0,69;0,0"
-              dur="4s"
-              repeatCount="indefinite"
-            />
-          </defs>
-          <rect width="100%" height="100%" fill="url(#honeycomb)" />
-        </svg>
-      </div>
+//   return (
+//     <div className="relative w-full h-[700px] md:h-[900px] flex items-center justify-center overflow-hidden">
+//       <div className="absolute inset-0 opacity-5">
+//         <svg className="w-full h-full">
+//           <defs>
+//             <pattern id="honeycomb" x="0" y="0" width="80" height="69" patternUnits="userSpaceOnUse">
+//               <polygon points="40,1 70,20 70,57 40,76 10,57 10,20" fill="none" stroke="#8b5cf6" strokeWidth="1">
+//                 <animate attributeName="stroke" values="#8b5cf6;#06b6d4;#8b5cf6" dur="2s" repeatCount="indefinite" />
+//               </polygon>
+//               <line x1="40" y1="1" x2="40" y2="76" stroke="#8b5cf6" strokeWidth="0.5" opacity="0.3">
+//                 <animate
+//                   attributeName="stroke-dasharray"
+//                   values="0,100;50,50;100,0"
+//                   dur="3s"
+//                   repeatCount="indefinite"
+//                 />
+//               </line>
+//             </pattern>
+//             <animateTransform
+//               attributeName="patternTransform"
+//               type="translate"
+//               values="0,0;0,69;0,0"
+//               dur="4s"
+//               repeatCount="indefinite"
+//             />
+//           </defs>
+//           <rect width="100%" height="100%" fill="url(#honeycomb)" />
+//         </svg>
+//       </div>
 
-      {/* Features hexagonales */}
-      {features.map((feature, index) => {
-        const position = getResponsivePosition(feature)
-        const isActive = isMobile ? clickedFeature === index : hoveredFeature === index
+//       {/* Features hexagonales */}
+//       {features.map((feature, index) => {
+//         const position = getResponsivePosition(feature)
+//         const isActive = isMobile ? clickedFeature === index : hoveredFeature === index
 
-        return (
-          <motion.div
-            key={index}
-            className="absolute honeycomb-item interactive-element cursor-pointer"
-            style={{
-              left: `calc(50% + ${position.x}px)`,
-              top: `calc(50% + ${position.y}px)`,
-              transform: "translate(-50%, -50%)",
-            }}
-            initial={{
-              opacity: 0,
-              scale: 0,
-              rotate: 180,
-              y: position.y - 50,
-            }}
-            animate={
-              index < visibleFeatures
-                ? {
-                    opacity: 1,
-                    scale: isActive ? 1.4 : 1,
-                    rotate: 0,
-                    y: position.y,
-                    zIndex: isActive ? 20 : 1,
-                  }
-                : {
-                    opacity: 0,
-                    scale: 0,
-                    rotate: 180,
-                    y: position.y - 50,
-                  }
-            }
-            transition={{
-              duration: 0.6,
-              delay: index * 0.1,
-              type: "spring",
-              stiffness: 120,
-              damping: 12,
-            }}
-            whileHover={
-              !isMobile
-                ? {
-                    scale: 1.4,
-                    zIndex: 20,
-                    rotate: [0, 5, -5, 0],
-                    transition: { duration: 0.4 },
-                  }
-                : {}
-            }
-            onHoverStart={() => !isMobile && setHoveredFeature(index)}
-            onHoverEnd={() => !isMobile && setHoveredFeature(null)}
-            onClick={() => handleFeatureInteraction(index)}
-          >
-            <div className="relative">
-              <svg width="70" height="70" viewBox="0 0 70 70" className="md:w-24 md:h-24 drop-shadow-2xl">
-                <defs>
-                  <linearGradient id={`featureGrad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor={feature.color.split(" ")[1].replace("to-", "")} />
-                    <stop offset="100%" stopColor={feature.color.split(" ")[2]} />
-                  </linearGradient>
-                  <filter id={`glow-${index}`}>
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-                <polygon
-                  points="35,3 60,19 60,51 35,67 10,51 10,19"
-                  fill={`url(#featureGrad-${index})`}
-                  stroke="white"
-                  strokeWidth="2"
-                  filter={isActive ? `url(#glow-${index})` : "none"}
-                />
-              </svg>
+//         return (
+//           <motion.div
+//             key={index}
+//             className="absolute honeycomb-item interactive-element cursor-pointer"
+//             style={{
+//               left: `calc(50% + ${position.x}px)`,
+//               top: `calc(50% + ${position.y}px)`,
+//               transform: "translate(-50%, -50%)",
+//             }}
+//             initial={{
+//               opacity: 0,
+//               scale: 0,
+//               rotate: 180,
+//               y: position.y - 50,
+//             }}
+//             animate={
+//               index < visibleFeatures
+//                 ? {
+//                     opacity: 1,
+//                     scale: isActive ? 1.4 : 1,
+//                     rotate: 0,
+//                     y: position.y,
+//                     zIndex: isActive ? 20 : 1,
+//                   }
+//                 : {
+//                     opacity: 0,
+//                     scale: 0,
+//                     rotate: 180,
+//                     y: position.y - 50,
+//                   }
+//             }
+//             transition={{
+//               duration: 0.6,
+//               delay: index * 0.1,
+//               type: "spring",
+//               stiffness: 120,
+//               damping: 12,
+//             }}
+//             whileHover={
+//               !isMobile
+//                 ? {
+//                     scale: 1.4,
+//                     zIndex: 20,
+//                     rotate: [0, 5, -5, 0],
+//                     transition: { duration: 0.4 },
+//                   }
+//                 : {}
+//             }
+//             onHoverStart={() => !isMobile && setHoveredFeature(index)}
+//             onHoverEnd={() => !isMobile && setHoveredFeature(null)}
+//             onClick={() => handleFeatureInteraction(index)}
+//           >
+//             <div className="relative">
+//               <svg width="70" height="70" viewBox="0 0 70 70" className="md:w-24 md:h-24 drop-shadow-2xl">
+//                 <defs>
+//                   <linearGradient id={`featureGrad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+//                     <stop offset="0%" stopColor={feature.color.split(" ")[1].replace("to-", "")} />
+//                     <stop offset="100%" stopColor={feature.color.split(" ")[2]} />
+//                   </linearGradient>
+//                   <filter id={`glow-${index}`}>
+//                     <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+//                     <feMerge>
+//                       <feMergeNode in="coloredBlur" />
+//                       <feMergeNode in="SourceGraphic" />
+//                     </feMerge>
+//                   </filter>
+//                 </defs>
+//                 <polygon
+//                   points="35,3 60,19 60,51 35,67 10,51 10,19"
+//                   fill={`url(#featureGrad-${index})`}
+//                   stroke="white"
+//                   strokeWidth="2"
+//                   filter={isActive ? `url(#glow-${index})` : "none"}
+//                 />
+//               </svg>
 
-              <div className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl">
-                {feature.icon}
-              </div>
+//               <div className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl">
+//                 {feature.icon}
+//               </div>
 
-              {isActive && (
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-white/50"
-                  initial={{ scale: 1, opacity: 1 }}
-                  animate={{ scale: 2, opacity: 0 }}
-                  transition={{ duration: 0.6, repeat: Number.POSITIVE_INFINITY }}
-                />
-              )}
-            </div>
-          </motion.div>
-        )
-      })}
+//               {isActive && (
+//                 <motion.div
+//                   className="absolute inset-0 rounded-full border-2 border-white/50"
+//                   initial={{ scale: 1, opacity: 1 }}
+//                   animate={{ scale: 2, opacity: 0 }}
+//                   transition={{ duration: 0.6, repeat: Number.POSITIVE_INFINITY }}
+//                 />
+//               )}
+//             </div>
+//           </motion.div>
+//         )
+//       })}
 
-      {((hoveredFeature !== null && !isMobile) || (clickedFeature !== null && isMobile)) && (
-        <motion.div
-          className={`${isMobile ? "fixed" : "fixed"} pointer-events-none z-30`}
-          style={
-            isMobile
-              ? {
-                  left: "50%",
-                  top: "50%",
-                  transform: "translate(-50%, -50%)",
-                }
-              : {
-                  left: mousePosition.x + 20,
-                  top: mousePosition.y - 50,
-                }
-          }
-          initial={{ opacity: 0, scale: 0.8, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 10 }}
-          transition={{ duration: 0.2 }}
-        >
-          <div className="bg-black/95 backdrop-blur-md text-white p-3 md:p-4 rounded-xl shadow-2xl border border-purple-500/30 max-w-xs">
-            <div className="flex items-center mb-2">
-              <div
-                className={`w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br ${features[isMobile ? clickedFeature : hoveredFeature].color} flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3`}
-              >
-                {features[isMobile ? clickedFeature : hoveredFeature].icon}
-              </div>
-              <h4 className="font-bold text-xs md:text-sm">
-                {features[isMobile ? clickedFeature : hoveredFeature].title}
-              </h4>
-            </div>
-            <p className="text-gray-300 text-xs leading-relaxed">
-              {features[isMobile ? clickedFeature : hoveredFeature].description}
-            </p>
-          </div>
-        </motion.div>
-      )}
+//       {((hoveredFeature !== null && !isMobile) || (clickedFeature !== null && isMobile)) && (
+//         <motion.div
+//           className={`${isMobile ? "fixed" : "fixed"} pointer-events-none z-30`}
+//           style={
+//             isMobile
+//               ? {
+//                   left: "50%",
+//                   top: "50%",
+//                   transform: "translate(-50%, -50%)",
+//                 }
+//               : {
+//                   left: mousePosition.x + 20,
+//                   top: mousePosition.y - 50,
+//                 }
+//           }
+//           initial={{ opacity: 0, scale: 0.8, y: 10 }}
+//           animate={{ opacity: 1, scale: 1, y: 0 }}
+//           exit={{ opacity: 0, scale: 0.8, y: 10 }}
+//           transition={{ duration: 0.2 }}
+//         >
+//           <div className="bg-black/95 backdrop-blur-md text-white p-3 md:p-4 rounded-xl shadow-2xl border border-purple-500/30 max-w-xs">
+//             <div className="flex items-center mb-2">
+//               <div
+//                 className={`w-6 h-6 md:w-8 md:h-8 rounded-lg bg-gradient-to-br ${features[isMobile ? clickedFeature : hoveredFeature].color} flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3`}
+//               >
+//                 {features[isMobile ? clickedFeature : hoveredFeature].icon}
+//               </div>
+//               <h4 className="font-bold text-xs md:text-sm">
+//                 {features[isMobile ? clickedFeature : hoveredFeature].title}
+//               </h4>
+//             </div>
+//             <p className="text-gray-300 text-xs leading-relaxed">
+//               {features[isMobile ? clickedFeature : hoveredFeature].description}
+//             </p>
+//           </div>
+//         </motion.div>
+//       )}
 
-      {/* Centro de características */}
-      <div className="relative z-10 text-center">
-        <motion.div
-          className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-purple-300/60 via-purple-300 to-purple-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white/30 mb-4 mx-auto"
-          animate={{
-            rotate: [0, 360],
-            scale: hoveredFeature !== null || clickedFeature !== null ? 1.1 : 1,
-          }}
-          transition={{
-            rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
-            scale: { duration: 0.3 },
-          }}
-        >
-          {/* <FaBrain className="text-white text-xl md:text-3xl" /> */}
-          <img src={Logo} alt="Colmena-Ai" />
-        </motion.div>
-        <h3 className="text-lg md:text-xl font-bold text-white mb-2">IA Avanzada</h3>
-        <p className="text-gray-300 max-w-xs text-xs md:text-sm px-4">
-          Tecnología de vanguardia para automatizar y optimizar tu negocio
-        </p>
-      </div>
-    </div>
-  )
-}
+//       {/* Centro de características */}
+//       <div className="relative z-10 text-center">
+//         <motion.div
+//           className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-purple-300/60 via-purple-300 to-purple-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-white/30 mb-4 mx-auto"
+//           animate={{
+//             rotate: [0, 360],
+//             scale: hoveredFeature !== null || clickedFeature !== null ? 1.1 : 1,
+//           }}
+//           transition={{
+//             rotate: { duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" },
+//             scale: { duration: 0.3 },
+//           }}
+//         >
+//           {/* <FaBrain className="text-white text-xl md:text-3xl" /> */}
+//           <img src={Logo} alt="Colmena-Ai" />
+//         </motion.div>
+//         <h3 className="text-lg md:text-xl font-bold text-white mb-2">AI Avanzada</h3>
+//         <p className="text-gray-300 max-w-xs text-xs md:text-sm px-4">
+//           Tecnología de vanguardia para automatizar y optimizar tu negocio
+//         </p>
+//       </div>
+//     </div>
+//   )
+// }
 
 /* =========================
    FloatingShapes
@@ -1280,6 +1285,7 @@ const StarParticles = () => {
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home")
   const { scrollY } = useScroll()
+  const navigate = useNavigate()
 
   // Helper: Section wrapper (full viewport + snap)
   const Section = ({ id, children, className = "" }) => (
@@ -1327,7 +1333,7 @@ export default function Home() {
                   <h2 className="text-4xl sm:text-5xl lg:text-3xl font-bold text-white mb-6 leading-tight">
                     Automatiza tu negocio con{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-yellow-500">
-                      IA y WhatsApp
+                      AI y WhatsApp
                     </span>
                   </h2>
 
@@ -1357,70 +1363,6 @@ export default function Home() {
             </div>
           </div>
         </Section>
-
-        {/* NEW SECTION - Company Presentation */}
-        {/* <Section id="presentation" className="bg-gradient-to-t from-black/10 via-purple-900/60 to-purple-600/30 pt-32 -mt-8 z-0">
-          <div className="max-w-7xl mx-auto px-4 relative  w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                Transformamos tu{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
-                  Negocio
-                </span>
-              </h2>
-              <p className="text-lg text-gray-300 max-w-4xl mx-auto mb-8">
-                En Colmena IA transformamos la manera en que tu negocio recibe pedidos, gestiona solicitudes y
-                selecciona talento. Conectamos la inteligencia artificial con WhatsApp para que cada interacción sea más
-                rápida, precisa y eficiente, sin importar tu sector.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: <FaClock className="text-2xl" />, title: "Respuesta instantánea", desc: "Atiende sin esperar" },
-                {
-                  icon: <FaPlug className="text-2xl" />,
-                  title: "Integración fácil",
-                  desc: "Conecta con tus sistemas actuales",
-                },
-                {
-                  icon: <FaCalendarCheck className="text-2xl" />,
-                  title: "Disponibilidad total",
-                  desc: "365 días del año, 24/7",
-                },
-                {
-                  icon: <FaCheckCircle className="text-2xl" />,
-                  title: "Menos errores",
-                  desc: "Todo claro desde el primer mensaje",
-                },
-              ].map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="interactive-element"
-                >
-                  <Card className="text-center rounded-2xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 border border-purple-500/20 p-6 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 bg-gradient-to-br from-purple-600 to-purple-700 text-white">
-                      {benefit.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
-                    <p className="text-gray-300 text-sm">{benefit.desc}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </Section> */}
 
         <BussinesSection />
 
@@ -1498,62 +1440,7 @@ export default function Home() {
           </div>
         </Section>
 
-        {/* NEW SECTION - How it works */}
-        {/* <Section id="how-it-works" className="bg-gradient-to-br from-purple-900/20 to-black">
-          <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
-                ¿Cómo{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
-                  Funciona?
-                </span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {[
-                { step: "1", title: "Conectamos tu negocio a WhatsApp API", icon: <FaPlug className="text-2xl" /> },
-                { step: "2", title: "Configuramos tus procesos con IA", icon: <FaRobot className="text-2xl" /> },
-                {
-                  step: "3",
-                  title: "Empiezas a recibir pedidos, solicitudes o candidatos listos para atender",
-                  icon: <FaCheckCircle className="text-2xl" />,
-                },
-              ].map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="relative mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4 text-white shadow-lg">
-                      {step.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
-                      {step.step}
-                    </div>
-                  </div>
-                  <p className="text-white font-medium text-lg">{step.title}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <Button className="h-14 px-8 rounded-2xl bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg border-none interactive-element">
-                <FaRocket className="mr-2" /> Quiero automatizar mi negocio
-              </Button>
-            </div>
-          </div>
-        </Section> */}
+       <DemoSection />
 
               {/* 4. Cómo funciona (3 pasos) */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-purple-900 relative overflow-hidden w-[90%] rounded-3xl m-auto">
@@ -1586,7 +1473,7 @@ export default function Home() {
               },
               {
                 step: "2",
-                title: "Configuramos tus procesos con IA",
+                title: "Configuramos tus procesos con AI",
                 description: "Personalizamos la inteligencia artificial según las necesidades de tu negocio.",
                 icon: <FaBrain className="w-8 h-8" />,
               },
@@ -1642,7 +1529,7 @@ export default function Home() {
                 size="large"
                 icon={<FaRocket />}
                 className="!h-16 !px-10 text-sm md:!text-lg font-bold !rounded-2xl !bg-gradient-to-r !from-yellow-500 !to-yellow-600 !border-none shadow-2xl hover:shadow-3xl !text-purple-800 m-auto"
-                onClick={() => setActiveSection("contact")}
+                onClick={() => navigate("/contacto")}
               >
                 Quiero automatizar mi negocio
               </Button>
@@ -1651,98 +1538,7 @@ export default function Home() {
         </div>
       </section>
 
-        {/* NEW SECTION - Benefits by sector */}
-        {/* <Section id="sectors" className="bg-gradient-to-br from-black via-purple-900/10 to-black">
-          <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 pt-12">
-                Beneficios por{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
-                  Sector
-                </span>
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  icon: <FaUtensils className="text-2xl" />,
-                  title: "Restaurantes, cafés y taquerías",
-                  desc: "Toma pedidos sin llamadas y sin errores, directo a cocina.",
-                  color: "orange",
-                },
-                {
-                  icon: <FaStethoscope className="text-2xl" />,
-                  title: "Clínicas y consultorios",
-                  desc: "Agenda y confirma citas automáticamente.",
-                  color: "blue",
-                },
-                {
-                  icon: <FaShoppingCart className="text-2xl" />,
-                  title: "Retail y e-commerce",
-                  desc: "Responde disponibilidad y opciones de entrega al instante.",
-                  color: "green",
-                },
-                {
-                  icon: <FaWrench className="text-2xl" />,
-                  title: "Talleres y servicios técnicos",
-                  desc: "Cotiza y confirma fechas sin interrumpir tu trabajo.",
-                  color: "purple",
-                },
-                {
-                  icon: <FaBuilding className="text-2xl" />,
-                  title: "Oficinas y despachos",
-                  desc: "Centraliza solicitudes y documentos sin perder información.",
-                  color: "indigo",
-                },
-                {
-                  icon: <FaUserTie className="text-2xl" />,
-                  title: "RRHH y agencias de reclutamiento",
-                  desc: "Recibe y filtra postulaciones en minutos.",
-                  color: "pink",
-                },
-              ].map((sector, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="interactive-element"
-                >
-                  <Card className="rounded-2xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 border border-purple-500/20 p-6 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm h-full">
-                    <div
-                      className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 bg-gradient-to-br ${
-                        sector.color === "orange"
-                          ? "from-orange-500 to-orange-600"
-                          : sector.color === "blue"
-                            ? "from-blue-500 to-blue-600"
-                            : sector.color === "green"
-                              ? "from-green-500 to-green-600"
-                              : sector.color === "purple"
-                                ? "from-purple-500 to-purple-600"
-                                : sector.color === "indigo"
-                                  ? "from-indigo-500 to-indigo-600"
-                                  : "from-pink-500 to-pink-600"
-                      } text-white`}
-                    >
-                      {sector.icon}
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-3">{sector.title}</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">{sector.desc}</p>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </Section> */}
+     
 
         <BeneficiosPorSector />
 

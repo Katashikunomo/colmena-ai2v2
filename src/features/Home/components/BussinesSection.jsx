@@ -3,6 +3,11 @@ import { FaClock, FaPlug, FaExclamationTriangle, FaCheckCircle } from "react-ico
 import botwhatssai from "../../../assets/botwhatssai.png"
 import dataanalisis from "../../../assets/dataanalisis.png"
 import errorsux from "../../../assets/errorsux.png"
+import AIassistence from "../../../assets/AI-assistence.gif"
+import dataai from "../../../assets/dataai.mp4"
+import dataai2 from "../../../assets/dataai2.mp4"
+import AnimatedMedia from "./AnimatedMedia"
+// import aiLottie from "../assets/ai-microinteraction.json"
 
 export default function BusinesSection() {
      // Helper: Section wrapper (full viewport + snap)
@@ -30,7 +35,7 @@ export default function BusinesSection() {
           </h2>
           <p className="text-lg text-gray-300 max-w-4xl mx-auto mb-8">
             En Colmena AI transformamos la manera en que tu negocio recibe pedidos, gestiona solicitudes y selecciona
-            talento. Conectamos la inteligencia artificial con WhatsApp para que cada interacción sea más rápida,
+            talento. Conectamos la inteligencia artificial con WhatsApp API para que cada interacción sea más rápida,
             precisa y eficiente, sin importar tu sector.
           </p>
         </motion.div>
@@ -61,7 +66,7 @@ export default function BusinesSection() {
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed">
                 Nuestro sistema de AI atiende a tus clientes las 24 horas sin demoras ni esperas. Se integra
-                perfectamente con WhatsApp Business para automatizar respuestas, procesar pedidos y gestionar consultas
+                perfectamente con WhatsApp API para automatizar respuestas, procesar pedidos y gestionar consultas
                 de manera natural y eficiente.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -76,7 +81,7 @@ export default function BusinesSection() {
                 </span>
               </div>
             </div>
-            <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+            {/* <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
               <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-purple-500/30 rounded-3xl blur-3xl animate-pulse"></div>
               <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-3xl p-8 border border-green-500/30 backdrop-blur-lg shadow-2xl">
                 <img
@@ -84,8 +89,54 @@ export default function BusinesSection() {
                   alt="WhatsApp AI Integration"
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
+                es gif
+                AIassistence
               </div>
-            </motion.div>
+            </motion.div> */}
+            <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+  <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-purple-500/30 rounded-3xl blur-3xl animate-pulse"></div>
+
+  <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-3xl p-4 border border-green-500/30 backdrop-blur-lg shadow-2xl">
+    {/* Opción A: Lottie (micro-interaction) */}
+    {/* <AnimatedMedia
+      lottieData={aiLottie}
+      alt="AI Assistant micro-interaction"
+      width="360px"
+      height="240px"
+      className="rounded-2xl overflow-hidden"
+      poster={poster}
+    /> */}
+
+    {/* Opción B: Video loop (WebM) - usa si tienes un hero loop más complejo */}
+    {/*
+    <AnimatedMedia
+      srcWebm={webmPath}
+      srcMp4={mp4Path}
+      poster={poster}
+      alt="AI Dashboard loop"
+      width="100%"
+      height="220px"
+      className="rounded-2xl overflow-hidden"
+    />
+    */}
+
+    {/* Opción C: GIF/WebP fallback */}
+    
+    <AnimatedMedia
+      srcWebp={AIassistence}
+      srcGif={AIassistence}
+      poster={AIassistence}
+      alt="AI small loop"
+      width="40%"
+      height="auto"
+    />
+   
+
+    <div className="mt-4 text-white font-semibold text-lg">AI Assistance</div>
+    <div className="text-sm text-gray-300">Procesamiento en tiempo real · Visualización de modelos</div>
+  </div>
+</motion.div>
+
           </motion.div>
 
           {/* Integration Feature - Integración Perfecta */}
@@ -96,7 +147,7 @@ export default function BusinesSection() {
             viewport={{ once: true }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
-            <motion.div
+            {/* <motion.div
               className="relative order-2 lg:order-1"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
@@ -109,7 +160,50 @@ export default function BusinesSection() {
                   className="w-full h-auto rounded-2xl shadow-2xl"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
+                                    <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+  <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-purple-500/30 rounded-3xl blur-3xl animate-pulse"></div>
+
+  <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-3xl p-4 border border-green-500/30 backdrop-blur-lg shadow-2xl">
+    {/* Opción A: Lottie (micro-interaction) */}
+    {/* <AnimatedMedia
+      lottieData={aiLottie}
+      alt="AI Assistant micro-interaction"
+      width="360px"
+      height="240px"
+      className="rounded-2xl overflow-hidden"
+      poster={poster}
+    /> */}
+
+    {/* Opción B: Video loop (WebM) - usa si tienes un hero loop más complejo */}
+    
+    <AnimatedMedia
+      srcWebm={dataai2}
+      srcMp4={dataai2}
+      poster={dataai2}
+      alt="AI Dashboard loop"
+      width="100%"
+      height="220px"
+      className="rounded-2xl overflow-hidden"
+    />
+   
+
+    {/* Opción C: GIF/WebP fallback */}
+    
+    {/* <AnimatedMedia
+      srcWebp={dataai}
+      srcGif={dataai}
+      poster={dataai}
+      alt="AI small loop"
+      width="40%"
+      height="auto"
+    /> */}
+   
+
+    <div className="mt-4 text-white font-semibold text-lg">AI - Integracion</div>
+    <div className="text-sm text-gray-300">Procesamiento de integración de datos</div>
+  </div>
+</motion.div>
             <div className="space-y-6 order-1 lg:order-2">
               <div className="flex items-center gap-4 mb-6">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-purple-700 text-white shadow-lg">
@@ -137,7 +231,7 @@ export default function BusinesSection() {
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"></div>
-                  <span className="text-gray-300">Integración con WhatsApp Business</span>
+                  <span className="text-gray-300">Integración con WhatsApp API</span>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-3"
@@ -146,7 +240,7 @@ export default function BusinesSection() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-blue-400"></div>
-                  <span className="text-gray-300">Conexión con sistemas existentes</span>
+                  <span className="text-gray-300">Conexión con tus sistemas existentes (CRM, ERP, PDV, Software administrativo para restaurantes, bares, cafeterías, estéticas, entre muchas mas Integraciones)</span>
                 </motion.div>
                 <motion.div
                   className="flex items-center gap-3"
@@ -184,7 +278,7 @@ export default function BusinesSection() {
                 </span>
               </h3>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Reduce errores y mejora la experiencia de cada cliente. Colmena IA se adapta a tu infraestructura
+                Reduce errores y mejora la experiencia de cada cliente. Colmena AI se adapta a tu infraestructura
                 existente, integrándose con CRM, sistemas de inventario, plataformas de pago y más con total precisión.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -199,7 +293,7 @@ export default function BusinesSection() {
                 </span>
               </div>
             </div>
-            <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+            {/* <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/30 to-orange-500/30 rounded-3xl blur-3xl animate-pulse"></div>
               <div className="relative  bg-gradient-to-br from-gray-900/95 to-black/95 rounded-3xl p-8 border border-red-500/30 backdrop-blur-lg shadow-2xl">
                 <img
@@ -208,7 +302,50 @@ export default function BusinesSection() {
                   className="lg:w-full h-auto rounded-2xl shadow-2xl"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
+                        <motion.div className="relative" whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+  <div className="absolute inset-0 bg-gradient-to-r from-green-500/30 to-purple-500/30 rounded-3xl blur-3xl animate-pulse"></div>
+
+  <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-3xl p-4 border border-green-500/30 backdrop-blur-lg shadow-2xl">
+    {/* Opción A: Lottie (micro-interaction) */}
+    {/* <AnimatedMedia
+      lottieData={aiLottie}
+      alt="AI Assistant micro-interaction"
+      width="360px"
+      height="240px"
+      className="rounded-2xl overflow-hidden"
+      poster={poster}
+    /> */}
+
+    {/* Opción B: Video loop (WebM) - usa si tienes un hero loop más complejo */}
+    
+    <AnimatedMedia
+      srcWebm={dataai}
+      srcMp4={dataai}
+      poster={dataai}
+      alt="AI Dashboard loop"
+      width="100%"
+      height="220px"
+      className="rounded-2xl overflow-hidden"
+    />
+   
+
+    {/* Opción C: GIF/WebP fallback */}
+    
+    {/* <AnimatedMedia
+      srcWebp={dataai}
+      srcGif={dataai}
+      poster={dataai}
+      alt="AI small loop"
+      width="40%"
+      height="auto"
+    /> */}
+   
+
+    <div className="mt-4 text-white font-semibold text-lg">AI - Integracion</div>
+    <div className="text-sm text-gray-300">Procesamiento de integración de datos</div>
+  </div>
+</motion.div>
           </motion.div>
 
           <motion.div
@@ -321,7 +458,7 @@ export default function BusinesSection() {
                     transition={{ duration: 0.5, delay: 0.4 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-                    <span className="text-gray-300">Recuperación instantánea</span>
+                    <span className="text-gray-300">SLA de soporte</span>
                   </motion.div>
                   <motion.div
                     className="flex items-center gap-3"
@@ -330,7 +467,7 @@ export default function BusinesSection() {
                     transition={{ duration: 0.5, delay: 0.5 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-                    <span className="text-gray-300">Soporte técnico 24/7</span>
+                    <span className="text-gray-300">Entrega e implementación</span>
                   </motion.div>
                   <motion.div
                     className="flex items-center gap-3"
@@ -339,7 +476,7 @@ export default function BusinesSection() {
                     transition={{ duration: 0.5, delay: 0.6 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"></div>
-                    <span className="text-gray-300">Infraestructura redundante</span>
+                    <span className="text-gray-300">Satisfacción</span>
                   </motion.div>
                 </div>
               </div>

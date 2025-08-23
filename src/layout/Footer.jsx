@@ -141,8 +141,8 @@ export default function Footer() {
                   ¿Listo para Automatizar tu Negocio?
                 </h2>
                 <p className="text-purple-200 mb-8 text-lg">
-                  Únete a más de 500 empresas que ya usan Colmena AI para
-                  automatizar atención y ventas 24/7.
+                  Únete a las empresas que ya usan Colmena AI para
+                  automatizar su atención y aumentar sus ventas sin interrupciones 24/7 con Whatssap AI.
                 </p>
 
                 <div className="flex gap-4 justify-center flex-wrap">

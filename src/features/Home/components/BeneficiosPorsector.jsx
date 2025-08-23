@@ -34,7 +34,7 @@ export default function BeneficiosPorSector() {
               </span>
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Descubre cómo nuestra IA transforma cada industria con soluciones específicas
+              Descubre cómo nuestra AI transforma cada industria con soluciones específicas
             </p>
           </motion.div>
 
@@ -48,18 +48,18 @@ export default function BeneficiosPorSector() {
                 features: ["Pedidos automáticos", "Sin errores humanos", "Integración directa"],
               },
               {
-                icon: <FaStethoscope className="text-3xl" />,
-                title: "Clínicas y consultorios",
-                desc: "Agenda y confirma citas automáticamente.",
-                color: "blue",
-                features: ["Agenda inteligente", "Confirmaciones automáticas", "Recordatorios"],
-              },
-              {
                 icon: <FaShoppingCart className="text-3xl" />,
                 title: "Retail y e-commerce",
                 desc: "Responde disponibilidad y opciones de entrega al instante.",
                 color: "green",
                 features: ["Consultas instantáneas", "Stock en tiempo real", "Opciones de entrega"],
+              },
+              {
+                icon: <FaUserTie className="text-3xl" />,
+                title: "RRHH y agencias de reclutamiento",
+                desc: "Recibe y filtra postulaciones en minutos.",
+                color: "pink",
+                features: ["Filtrado inteligente", "Proceso rápido", "Evaluación automática"],
               },
               {
                 icon: <FaWrench className="text-3xl" />,
@@ -69,18 +69,18 @@ export default function BeneficiosPorSector() {
                 features: ["Cotizaciones automáticas", "Agenda de servicios", "Sin interrupciones"],
               },
               {
+                icon: <FaStethoscope className="text-3xl" />,
+                title: "Clínicas y consultorios",
+                desc: "Agenda y confirma citas automáticamente.",
+                color: "blue",
+                features: ["Agenda inteligente", "Confirmaciones automáticas", "Recordatorios"],
+              },
+              {
                 icon: <FaBuilding className="text-3xl" />,
                 title: "Oficinas y despachos",
                 desc: "Centraliza solicitudes y documentos sin perder información.",
                 color: "indigo",
                 features: ["Gestión centralizada", "Documentos organizados", "Cero pérdidas"],
-              },
-              {
-                icon: <FaUserTie className="text-3xl" />,
-                title: "RRHH y agencias de reclutamiento",
-                desc: "Recibe y filtra postulaciones en minutos.",
-                color: "pink",
-                features: ["Filtrado inteligente", "Proceso rápido", "Evaluación automática"],
               },
             ].map((sector, index) => (
               <motion.div

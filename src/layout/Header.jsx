@@ -58,7 +58,7 @@ export default function Header() {
   }, [])
 
   const wrapperBgClass = scrolled
-    ? "bg-gradient-to-r from-purple-900/50 via-black/50 to-black/60 backdrop-blur-md border-2 border-purple-700 shadow-sm shadow-purple-400"
+    ? "bg-gradient-to-r from-purple-900/50 via-white/20 to-black/20 backdrop-blur-md border-2 border-purple-700 shadow-sm shadow-purple-400"
     : "bg-gradient-to-r from-purple-900 via-purple-600 to-white/20 backdrop-blur-md"
 
   const baseHeaderHeight = scrolled ? 60 : 80
@@ -90,7 +90,7 @@ export default function Header() {
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-11 h-11 rounded-3xl flex items-center justify-center  from-black to-purple-800 shadow-lg bg-gradient-to-br hover:shadow-xl transition-all duration-200 select-none"
+                className="w-11 h-11 rounded-3xl flex items-center justify-center  from-white/90 via-white/90 to-white/60 shadow-sm shadow-white bg-gradient-to-br hover:shadow-lg hover:shadow-yellow-200 transition-all duration-200 select-none"
               
               >
                 <img src={logoColmena} alt="Logo" className="w-full h-full" />
@@ -116,7 +116,7 @@ export default function Header() {
                     className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 select-none
                       ${
                         active
-                          ? "text-white bg-gradient-to-r from-purple-600 to-purple-800 shadow-lg"
+                          ? "text-white bg-gradient-to-r from-purple-600 to-purple-800 shadow-lg border-2"
                           : "text-white/95 hover:text-white hover:bg-white/10"
                       }`}
                     aria-current={active ? "page" : undefined}

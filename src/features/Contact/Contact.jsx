@@ -13,6 +13,7 @@ import {
   FaPaperPlane,
 } from "react-icons/fa"
 import { useState } from "react"
+import { toast } from "sonner"
 
 const AnimatedBackground = () => {
   return (
@@ -96,10 +97,29 @@ export default function Contact() {
 
     try {
       // Aquí puedes agregar la lógica para enviar el formulario
-      console.log("Datos del formulario:", formData)
+      // console.log("Datos del formulario:", formData)
 
-      // Simular envío
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      const response = await fetch("https://zwqt66thi8.execute-api.us-east-1.amazonaws.com/dev/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      // console.log("Enviando datos al servidor...", response)
+
+      const result = await response.json()
+      // console.log("Respuesta del servidor:", result)
+      if (!response.ok) {
+        throw new Error(result.message || "Error al enviar el formulario")
+      }else{
+        // console.log("Formulario enviado exitosamente:", result)
+        toast.success("¡Mensaje enviado exitosamente! Te contactaremos pronto.")
+      }
+      // Aquí puedes manejar la respuesta del servidor si es necesario
+      // Mostrar mensaje de éxito al usuario
+      
 
       // Resetear formulario
       setFormData({
@@ -111,9 +131,9 @@ export default function Contact() {
         mensaje: "",
       })
 
-      alert("¡Mensaje enviado exitosamente! Te contactaremos pronto.")
+      // alert("¡Mensaje enviado exitosamente! Te contactaremos pronto.")
     } catch (error) {
-      console.error("Error al enviar:", error)
+      // console.error("Error al enviar:", error)
       alert("Error al enviar el mensaje. Por favor intenta nuevamente.")
     } finally {
       setIsSubmitting(false)
@@ -156,7 +176,7 @@ export default function Contact() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Estamos aquí para ayudarte a transformar tu negocio con IA. Contáctanos y descubre cómo podemos impulsar
+              Estamos aquí para ayudarte a transformar tu negocio con AI. Contáctanos y descubre cómo podemos impulsar
               tu éxito.
             </p>
           </motion.div>
@@ -186,7 +206,7 @@ export default function Contact() {
                       {
                         icon: FaEnvelope,
                         label: "Email",
-                        value: "contacto@tuempresa.com",
+                        value: "contacto@colmena-ai.com",
                         color: "from-purple-500 to-purple-600",
                       },
                       {
@@ -231,8 +251,8 @@ export default function Contact() {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-green-500/20 transition-all duration-500 hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-purple-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 shadow-2xl hover:shadow-green-500/20 transition-all duration-500 pb-16 hover:scale-105">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-purple-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 " />
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-purple-500 rounded-2xl mx-auto mb-8 shadow-lg">
@@ -246,19 +266,11 @@ export default function Contact() {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="w-full h-16 bg-gradient-to-r from-purple-500 to-green-500 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center space-x-3"
+                      onClick={() => window.location.href = "https://t.me/Colmena01_bot"}
                     >
                       <FaRocket />
-                      <span>Solicitar Demo Gratuita</span>
+                      <span>Ir a Demo Gratuita</span>
                     </motion.button>
-
-                    {/* <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full h-16 bg-white/10 backdrop-blur-sm border-2 border-green-400 text-green-400 font-bold text-lg rounded-xl hover:bg-green-400/10 transition-all duration-300 flex items-center justify-center space-x-3"
-                    >
-                      <FaChartLine />
-                      <span>Ver Casos de Éxito</span>
-                    </motion.button> */}
 
                     <div className="flex items-center justify-center space-x-2 mt-6 p-4 bg-white/5 rounded-xl backdrop-blur-sm">
                       <FaShieldAlt className="text-green-400" />
@@ -339,7 +351,7 @@ export default function Contact() {
                         value={formData.telefono}
                         onChange={handleInputChange}
                         className="w-full h-12 px-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all duration-300"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+52 (552) 250-3611"
                       />
                     </div>
 
@@ -378,7 +390,7 @@ export default function Contact() {
                         Automatización WhatsApp
                       </option>
                       <option value="ai-chatbot" className="bg-gray-800">
-                        Chatbot con IA
+                        Chatbot con AI
                       </option>
                       <option value="crm-integration" className="bg-gray-800">
                         Integración CRM
