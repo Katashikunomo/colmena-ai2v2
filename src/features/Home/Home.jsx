@@ -1301,9 +1301,9 @@ export default function Home() {
 
       <div className="relative bg-black  ">
         {/* HERO - Updated with radial gradient and star particles */}
-        <Section id="hero" className="overflow-hidden z-40 pt-36 -mt-24">
+        <Section id="hero" className="overflow-hidden z-40 pt-36 -mt-24 ">
           <div className="absolute inset-0 " />
-          <div className="absolute inset-0  bg-gradient-to-br from-transparent via-purple-800/20 to-purple-500/30" />
+          <div className="absolute inset-0  bg-gradient-to-br from-transparent via-purple-800/20 to-purple-500/90" />
 
           <div className="absolute inset-0 pointer-events-none">
             <StarParticles />
@@ -1342,11 +1342,27 @@ export default function Home() {
                   </p>
 
                   <div className="flex gap-3 flex-wrap">
-                    <Button className="h-12 px-6 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg border-none interactive-element hover:!bg-yellow-600 hover:!text-white">
+                    <Button className="h-12 px-6 rounded-lg bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg border-none interactive-element hover:!bg-yellow-600 hover:!text-white"
+                    onClick={() => {
+                      const section = document.getElementById("services");
+                      if (section) {
+                        section.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }
+                    }
+                    >
                       <FaRocket className="mr-2" /> Conoce nuestros servicios
                     </Button>
 
-                    <Button className="h-12 px-6 rounded-lg border-2 border-purple-600 text-white bg-transparent interactive-element hover:!bg-purple-900 hover:!text-white hover:!border-white">
+                    <Button className="h-12 px-6 rounded-lg border-2 border-purple-600 text-white bg-transparent interactive-element hover:!bg-purple-900 hover:!text-white hover:!border-white"
+                                        onClick={() => {
+                                          const section = document.getElementById("demo");
+                                          if (section) {
+                                            section.scrollIntoView({ behavior: "smooth" });
+                                          }
+                                        }
+                                        }
+                    >
                       <FaWhatsapp className="mr-2" /> Solicita tu demo
                     </Button>
                   </div>
@@ -1367,7 +1383,7 @@ export default function Home() {
         <BussinesSection />
 
         {/* SERVICES - Updated with new service content */}
-        <Section id="services" className="bg-gradient-to-br from-black to-purple-900/20">
+        <Section id="services" className="bg-gradient-to-br from-black to-purple-900/40  rounded-b-full pb-32 relative ">
           <div className="absolute inset-0 opacity-20">
             <FloatingShapes />
           </div>
@@ -1439,8 +1455,10 @@ export default function Home() {
             </div>
           </div>
         </Section>
-
-       <DemoSection />
+          
+        <div className="mt-22" id="demo">
+          <DemoSection />
+        </div>
 
               {/* 4. Cómo funciona (3 pasos) */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-purple-900 relative overflow-hidden w-[90%] rounded-3xl m-auto">
@@ -1544,32 +1562,8 @@ export default function Home() {
 
       
 
-        {/* ECOSYSTEM / HONEYCOMB - Kept existing */}
-        {/* <Section id="ecosystem" className="bg-gradient-to-br from-black via-purple-900/10 to-black">
-          <div className="max-w-7xl mx-auto px-4 relative z-10 w-full pt-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">
-                Ecosistema{" "}
-                <span className="bg-gradient-to-r from-purple-400 to-green-400 bg-clip-text text-transparent">
-                  Integrado
-                </span>
-              </h2>
-              <p className="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
-                Una colmena de herramientas interconectadas que trabajan en perfecta armonía para potenciar tu negocio.
-              </p>
-            </motion.div>
-
-            <HoneycombEcosystem />
-          </div>
-        </Section> */}
-
         {/* FEATURES / HONEYCOMB - Kept existing */}
-        <Section id="features" className="bg-gradient-to-br from-purple-900/20 to-black pt-20 pb-24">
+        <Section id="features" className="bg-gradient-to-br from-purple-900/20 to-black pt-20 pb-24 max-w-[1750px] mx-auto mt-24 rounded-3xl ">
           <div className="max-w-7xl mx-auto px-4 relative z-10 w-full">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

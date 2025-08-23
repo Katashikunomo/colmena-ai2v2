@@ -13,7 +13,7 @@ export default function BeneficiosPorSector() {
     <div>
       <Section
         id="sectors"
-        className="bg-gradient-to-br from-black via-purple-900/20 to-black relative overflow-hidden"
+        className="bg-gradient-to-br from-black via-purple-900/20 to-black relative overflow-hidden pb-32 max-w-[1750px] mx-auto mt-24 rounded-3xl"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/10 via-transparent to-green-600/10 animate-pulse"></div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse"></div>
