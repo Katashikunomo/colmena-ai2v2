@@ -225,17 +225,17 @@ export default function SimpleLoader() {
   }, [])
 
   return (
-    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-gradient-to-br from-black via-purple-900 to-purple-800">
+    <div className="fixed inset-0 z-[999] flex items-center justify-center bg-gradient-to-br from-black via-purple-900 to-purple-800 rounded-3xl">
       {/* Contenedor principal del loader */}
-      <div className={`relative transition-all duration-1000 rounded-xl ${showSplit ? "scale-110" : "scale-100"}`}>
+      <div className={`relative transition-all duration-1000 rounded-3xl ${showSplit ? "scale-110" : "scale-100"}`}>
         {/* Panel izquierdo - para efecto de división */}
         <div
-          className={`absolute inset-0 bg-gradient-to-r from-black via-purple-900 to-purple-700 transition-transform duration-1000 ease-in-out ${showSplit ? "-translate-x-full" : "translate-x-0"}`}
+          className={`absolute inset-0 bg-gradient-to-r from-black via-purple-900 to-purple-700 transition-transform duration-1000 rounded-3xl ease-in-out ${showSplit ? "-translate-x-full" : "translate-x-0"}`}
         />
 
         {/* Panel derecho - para efecto de división */}
         <div
-          className={`absolute inset-0 bg-gradient-to-l from-black via-purple-900 to-purple-700 transition-transform duration-1000 ease-in-out ${showSplit ? "translate-x-full" : "translate-x-0"}`}
+          className={`absolute inset-0 bg-gradient-to-l from-black via-purple-900 to-purple-700 transition-transform duration-1000 rounded-3xl ease-in-out ${showSplit ? "translate-x-full" : "translate-x-0"}`}
         />
 
         {/* Contenido central */}

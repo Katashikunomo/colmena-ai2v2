@@ -218,16 +218,17 @@ export default function Footer() {
 
                     <Space size="large">
                       {[
-                        { icon: <FaFacebook />, color: "hover:text-blue-400" },
-                        { icon: <FaTwitter />, color: "hover:text-sky-400" },
+                        // { icon: <FaFacebook />, color: "hover:text-blue-400" },
+                        // { icon: <FaTwitter />, color: "hover:text-sky-400" },
                         {
                           icon: <FaLinkedin />,
                           color: "hover:text-blue-500",
+                          onClick: () => window.open("https://www.linkedin.com/company/colmena-ai", "_blank"),
                         },
-                        {
-                          icon: <FaInstagram />,
-                          color: "hover:text-pink-400",
-                        },
+                        // {
+                        //   icon: <FaInstagram />,
+                        //   color: "hover:text-pink-400",
+                        // },
                       ].map((social, index) => (
                         <motion.div
                           key={index}
@@ -238,6 +239,7 @@ export default function Footer() {
                             type="text"
                             icon={social.icon}
                             className={`!text-gray-400 ${social.color} !text-xl !w-10 !h-10 !rounded-lg !bg-white !bg-opacity-10 hover:!bg-opacity-20 transition-all duration-300`}
+                            onClick={social.onClick}
                           />
                         </motion.div>
                       ))}
